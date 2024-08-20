@@ -1,39 +1,11 @@
 import React from 'react';
-import { Image, StyleSheet, Platform, View, FlatList } from 'react-native';
+import { Image, StyleSheet, Platform } from 'react-native';
 
 import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
-import { Link } from 'expo-router';
-
-// interface ColorItem {
-//   name: string;
-//   hex: string;
-// }
-
-const colors = [
-  { name: 'Red', hex: '#FF0000' },
-  { name: 'Green', hex: '#00FF00' },
-  { name: 'Blue', hex: '#0000FF' },
-  // Add more colors as needed
-] as const
-
-type ColorItem = typeof colors[number]
-
-const ColorListItem = ({ item }: { item: ColorItem }) => (
-  <Link
-    href={{
-      pathname: '/color/[color]',
-      params: { color: item.hex },
-    }}
-  >
-      <View style={styles.item}>
-        <View style={[styles.colorPreview, { backgroundColor: item.hex }]} />
-        <ThemedText>{item.name}</ThemedText>
-      </View>
-  </Link>
-);
+import { ColorLockup, colors } from '@/components/ColorLockup';
 
 
 export default function HomeScreen() {
@@ -53,7 +25,7 @@ export default function HomeScreen() {
 
       <ThemedView style={styles.titleContainer}>
         { colors.map((color) => (
-          <ColorListItem
+          <ColorLockup
             key={color.name}
             item={color}
           />
