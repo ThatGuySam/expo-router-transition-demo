@@ -5,24 +5,34 @@ import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
+import { Link } from 'expo-router';
 
-interface ColorItem {
-  name: string;
-  hex: string;
-}
+// interface ColorItem {
+//   name: string;
+//   hex: string;
+// }
 
-const colors: ColorItem[] = [
+const colors = [
   { name: 'Red', hex: '#FF0000' },
   { name: 'Green', hex: '#00FF00' },
   { name: 'Blue', hex: '#0000FF' },
   // Add more colors as needed
-];
+] as const
+
+type ColorItem = typeof colors[number]
 
 const ColorListItem = ({ item }: { item: ColorItem }) => (
-  <View style={styles.item}>
-    <View style={[styles.colorPreview, { backgroundColor: item.hex }]} />
-    <ThemedText>{item.name}</ThemedText>
-  </View>
+  <Link
+    href={{
+      pathname: '/color/[color]',
+      params: { color: item.hex },
+    }}
+  >
+      <View style={styles.item}>
+        <View style={[styles.colorPreview, { backgroundColor: item.hex }]} />
+        <ThemedText>{item.name}</ThemedText>
+      </View>
+  </Link>
 );
 
 
@@ -43,7 +53,10 @@ export default function HomeScreen() {
 
       <ThemedView style={styles.titleContainer}>
         { colors.map((color) => (
-          <ColorListItem key={color.name} item={color} />
+          <ColorListItem
+            key={color.name}
+            item={color}
+          />
         )) }
       </ThemedView>
 
