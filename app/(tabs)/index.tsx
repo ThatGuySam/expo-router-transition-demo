@@ -5,7 +5,7 @@ import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
-import { ColorLockup, colors } from '@/components/ColorLockup';
+import { ColorLink, colors } from '@/components/ColorLockup';
 
 
 export default function HomeScreen() {
@@ -25,7 +25,7 @@ export default function HomeScreen() {
 
       <ThemedView style={styles.titleContainer}>
         { colors.map((color) => (
-          <ColorLockup
+          <ColorLink
             key={color.name}
             item={color}
           />

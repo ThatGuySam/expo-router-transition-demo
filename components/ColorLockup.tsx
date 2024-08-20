@@ -11,18 +11,22 @@ export const colors = [
   ] as const
   
 type ColorItem = typeof colors[number]
-  
+
 export const ColorLockup = ({ item }: { item: ColorItem }) => (
+  <View style={styles.item}>
+        <View style={[styles.colorPreview, { backgroundColor: item.hex }]} />
+        <ThemedText>{item.name}</ThemedText>
+    </View>
+);
+  
+export const ColorLink = ({ item }: { item: ColorItem }) => (
     <Link
         href={{
         pathname: '/color/[color]',
         params: { color: item.hex },
         }}
     >
-        <View style={styles.item}>
-            <View style={[styles.colorPreview, { backgroundColor: item.hex }]} />
-            <ThemedText>{item.name}</ThemedText>
-        </View>
+      <ColorLockup item={item} />
     </Link>
 );
 
