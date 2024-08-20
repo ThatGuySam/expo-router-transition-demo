@@ -1,6 +1,11 @@
-# Welcome to your Expo app 👋
+# Expo Router Shared Element Transitions Demo
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+This is an example [Expo](https://expo.dev) project created to demo to use Shared Element Transitions with Expo Router. 
+
+Written for this thread: 
+https://github.com/expo/router/discussions/150
+
+Feel free to submit pull requests for breaking changes from new Expo versions. 
 
 ## Get started
 
