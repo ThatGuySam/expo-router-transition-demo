@@ -1,5 +1,6 @@
 import React from 'react';
 import { Image, StyleSheet, Platform } from 'react-native';
+import Animated from "react-native-reanimated";
 
 import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
@@ -25,10 +26,12 @@ export default function HomeScreen() {
 
       <ThemedView style={styles.titleContainer}>
         { colors.map((color) => (
-          <ColorLink
-            key={color.name}
-            item={color}
-          />
+          <Animated.View sharedTransitionTag='color'>
+            <ColorLink
+              key={color.name}
+              item={color}
+            />
+          </Animated.View>
         )) }
       </ThemedView>
 

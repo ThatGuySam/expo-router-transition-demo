@@ -1,6 +1,7 @@
 import { ColorLockup, colors } from "@/components/ColorLockup";
 import { useLocalSearchParams } from "expo-router";
 import { Text } from "react-native";
+import Animated from "react-native-reanimated";
 
 function useColor () {
     const { color } = useLocalSearchParams();
@@ -24,7 +25,9 @@ export default function ColorScreen() {
     return (
       <>
         <Text>Color!{ color.hex }</Text>
-        <ColorLockup item={ color } />
+        <Animated.View sharedTransitionTag="color">
+          <ColorLockup item={ color } />
+        </Animated.View>
       </>
     );
 }
