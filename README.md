@@ -1,5 +1,18 @@
 # Expo Router Shared Element Transitions Demo
 
+⚠️ Not currently working ⚠️
+
+I left this up for anyone who wants to take a crack at it. 
+
+I think the issue might be that it needs to be the same "Stack" or "Navigator"
+
+Here's the docs for doing it with React Navigation, which Expo Router uses under the hood:
+https://reactnavigation.org/docs/7.x/shared-element-transitions?config=dynamic
+
+There's some disconnect between the expected React Navigation implementation and Expo Router.
+
+---
+
 This is an example [Expo](https://expo.dev) project created to demo to use Shared Element Transitions with Expo Router. 
 
 Written for this thread: 
